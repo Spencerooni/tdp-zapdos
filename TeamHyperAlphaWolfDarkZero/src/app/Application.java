@@ -12,6 +12,7 @@ public class Application {
 		System.out.println(emp1.getEmpFirstName() + " " +
 		emp1.getEmpLastName());
 		
+		
 	}
 
 }

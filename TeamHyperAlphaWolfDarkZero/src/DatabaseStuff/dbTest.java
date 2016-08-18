@@ -4,7 +4,7 @@ public class dbTest {
 	public void dataB(){
 		try{
 	Class driver = Class.forName("com.mysql.jdbc.Driver");
-	Connection c = DriverManager.getConnection("jdbc:mysql://localhost/employeedatabase.sql", 
+	Connection c = DriverManager.getConnection("jdbc:mysql://localhost/EmployeeDatabase", 
 		            "root", "password");
 	
 	Statement st = c.createStatement();
@@ -12,8 +12,12 @@ public class dbTest {
 			while(rs.next()){
 				String out = String.format("%s is in %s.", 
 						   rs.getString("first_name"), rs.getString("last_name"));
+				System.out.println(out);
 			}
-		}catch(Exception e){}
+		}catch(Exception e){
+			System.out.println(e);
+		}
+		
 	
 	}
 
