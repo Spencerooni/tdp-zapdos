@@ -8,31 +8,39 @@ import javax.swing.JFrame;
 
 import DatabaseStuff.dbTest;
 import EmployeeRelated.Employee;
+import GUI.EmployeeGUI;
+
 
 public class Application {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-
-		Employee emp1 = new Employee(1, "Tim", "Bob", "PA 88 66 22 A");
-		
-		System.out.println(emp1.getEmpFirstName() + " " +
-		emp1.getEmpLastName());
 		
 
 		JFrame frame = new JFrame("The Spike");
 		frame.setSize(400, 400);
-		frame.setSize(400, 400);
 		
-		JButton button = new JButton("Submit");
-		button.setActionCommand("hi");
-		frame.add(button);
-		
+		EmployeeGUI test123 = new EmployeeGUI();
+		frame.add(test123);
 		frame.setVisible(true);
 		
-		button.addActionListener(new ButtonClickListener());
+		
+
+//		Employee emp1 = new Employee(1, "Tim", "Bob", "PA 88 66 22 A");
+//		
+//		System.out.println(emp1.getEmpFirstName() + " " +
+//		emp1.getEmpLastName());
 		
 		
+		
+//		JButton button = new JButton("Submit");
+//		button.setActionCommand("hi");
+//		frame.add(button);
+//		
+//		frame.setVisible(true);
+//		
+//		button.addActionListener(new ButtonClickListener());
+	
 		
 	}
 
