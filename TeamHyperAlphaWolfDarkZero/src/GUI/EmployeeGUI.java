@@ -4,7 +4,13 @@ import java.awt.GridBagLayout;
 import javax.swing.JLabel;
 import java.awt.GridBagConstraints;
 import javax.swing.JTextField;
+
+import DatabaseStuff.dbTest;
+
 import java.awt.Insets;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 import javax.swing.JButton;
 
 public class EmployeeGUI extends JPanel {
@@ -238,12 +244,14 @@ public class EmployeeGUI extends JPanel {
 		add(text_department, gbc_text_department);
 		text_department.setColumns(10);
 		
-		JButton btnNewButton = new JButton("Add Employee");
+		JButton btnAddEmployee = new JButton("Add Employee");
 		GridBagConstraints btn_addEmployee = new GridBagConstraints();
 		btn_addEmployee.insets = new Insets(0, 0, 5, 5);
 		btn_addEmployee.gridx = 2;
 		btn_addEmployee.gridy = 14;
-		add(btnNewButton, btn_addEmployee);
+		btnAddEmployee.setActionCommand("add");
+		btnAddEmployee.addActionListener(new ButtonClickListener());
+		add(btnAddEmployee, btn_addEmployee);
 		
 		JButton btnNewButton_1 = new JButton("Report");
 		GridBagConstraints btn_report = new GridBagConstraints();
@@ -253,4 +261,15 @@ public class EmployeeGUI extends JPanel {
 		add(btnNewButton_1, btn_report);
 
 	}
+}
+
+final class ButtonClickListener implements ActionListener{
+    public void actionPerformed(ActionEvent e) {
+       String command = e.getActionCommand();  
+       if( command.equals( "add" ))  {
+    	   dbTest test = new dbTest();
+           test.addEmployee("tfivv","n","s","5","dfg","sfb","xx"
+        		   ,"dfn","zfg","bs","gmg","786756");
+       }
+    }
 }

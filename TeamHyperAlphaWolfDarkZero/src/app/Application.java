@@ -19,8 +19,8 @@ public class Application {
 		JFrame frame = new JFrame("The Spike");
 		frame.setSize(400, 400);
 		
-		EmployeeGUI test123 = new EmployeeGUI();
-		frame.add(test123);
+		EmployeeGUI empGUI = new EmployeeGUI();
+		frame.add(empGUI);
 		frame.setVisible(true);
 		
 		
@@ -46,12 +46,12 @@ public class Application {
 
 }
 
-final class ButtonClickListener implements ActionListener{
-    public void actionPerformed(ActionEvent e) {
-       String command = e.getActionCommand();  
-       if( command.equals( "hi" ))  {
-    	   dbTest test = new dbTest();
-           test.dataB();
-       }
-    }
-}
+//final class ButtonClickListener implements ActionListener{
+//    public void actionPerformed(ActionEvent e) {
+//       String command = e.getActionCommand();  
+//       if( command.equals( "hi" ))  {
+//    	   dbTest test = new dbTest();
+//           test.dataB();
+//       }
+//    }
+//}
