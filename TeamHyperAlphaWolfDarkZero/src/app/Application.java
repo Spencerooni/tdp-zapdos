@@ -6,6 +6,7 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 
+import DatabaseStuff.dbTest;
 import EmployeeRelated.Employee;
 
 public class Application {
@@ -41,8 +42,8 @@ final class ButtonClickListener implements ActionListener{
     public void actionPerformed(ActionEvent e) {
        String command = e.getActionCommand();  
        if( command.equals( "hi" ))  {
-    	   
-           System.out.println("");
+    	   dbTest test = new dbTest();
+           test.dataB();
        }
     }
 }
