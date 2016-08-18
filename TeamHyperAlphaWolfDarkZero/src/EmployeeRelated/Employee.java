@@ -15,6 +15,7 @@ public class Employee {
 	private String empBIC;
 	private Float empStartSalary;
 	private String empDepartment;
+	private String empEmail;
 	
 	public Employee(int empID, String empFirstName, String empLastName,
 			String empNationalInsurance){
@@ -28,6 +29,16 @@ public class Employee {
 	}
 	
 	
+	public String getEmpEmail() {
+		return empEmail;
+	}
+
+
+	public void setEmpEmail(String empEmail) {
+		this.empEmail = empEmail;
+	}
+
+
 	public int getEmpID() {
 		return empID;
 	}

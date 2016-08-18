@@ -19,6 +19,7 @@
 -- Table structure for table `assignment`
 --
 
+
 DROP TABLE IF EXISTS `assignment`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
@@ -39,6 +40,7 @@ CREATE TABLE `assignment` (
 
 LOCK TABLES `assignment` WRITE;
 /*!40000 ALTER TABLE `assignment` DISABLE KEYS */;
+INSERT INTO `assignment` VALUES (1,'AM100','2015-09-10',NULL),(2,'TS102','2015-09-10','2016-08-10');
 /*!40000 ALTER TABLE `assignment` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -66,6 +68,7 @@ CREATE TABLE `department` (
 
 LOCK TABLES `department` WRITE;
 /*!40000 ALTER TABLE `department` DISABLE KEYS */;
+INSERT INTO `department` VALUES (1,'Enterprise','We deliver online platforms for UK Government Departments','AM100'),(2,'Evolve','We help make healthcare delivery easier with our mobile-enabled healthcare platform','TS102');
 /*!40000 ALTER TABLE `department` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -99,8 +102,34 @@ CREATE TABLE `employee` (
 
 LOCK TABLES `employee` WRITE;
 /*!40000 ALTER TABLE `employee` DISABLE KEYS */;
-INSERT INTO `employee` VALUES ('AM100','Annalisa','Misra','20 Cresent Hill, Fourwinds','Belfast','BT87YU','annalisa12095@hotmail.com','PA975547C','Annalisa Misra','0123456789','12345678',25000);
+INSERT INTO `employee` VALUES ('AM100','Annalisa','Misra','20 Cresent Hill, Fourwinds','Belfast','BT87YU','annalisa12095@hotmail.com','PA975547C','Annalisa Misra','0123456789','12345678',25000),('DF101','Daniel','Friend','43 Ballylenaghan Lane','Belfast','BT25SQ','daniel1234@gmail.com','DA976234D','Daniel Friend','34557843','GHB123HYG',22000),('TS102','Tom','S','123 Brick Lane','Carryduff','BT95AQ','toms9832@hotmail.com','QW927463C','Thomas S','5678908765','BSH432JHU',25000);
 /*!40000 ALTER TABLE `employee` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `salesEmployee`
+--
+
+DROP TABLE IF EXISTS `salesEmployee`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `salesEmployee` (
+  `employee_id` char(5) NOT NULL,
+  `commission_rate` int(11) NOT NULL,
+  `total_sales` int(11) DEFAULT NULL,
+  PRIMARY KEY (`employee_id`),
+  CONSTRAINT `salesEmployee_ibfk_1` FOREIGN KEY (`employee_id`) REFERENCES `employee` (`employee_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `salesEmployee`
+--
+
+LOCK TABLES `salesEmployee` WRITE;
+/*!40000 ALTER TABLE `salesEmployee` DISABLE KEYS */;
+INSERT INTO `salesEmployee` VALUES ('AM100',0,NULL),('DF101',3,1),('TS102',0,NULL);
+/*!40000 ALTER TABLE `salesEmployee` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -112,4 +141,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-08-18 12:07:29
+-- Dump completed on 2016-08-18 14:55:52
