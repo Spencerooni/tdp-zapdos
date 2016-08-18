@@ -28,7 +28,7 @@ public class Application {
 		
 		frame.setVisible(true);
 		
-		//button.addActionListener(new ButtonCLickListener());
+		button.addActionListener(new ButtonClickListener());
 		
 		
 		
@@ -41,7 +41,8 @@ final class ButtonClickListener implements ActionListener{
     public void actionPerformed(ActionEvent e) {
        String command = e.getActionCommand();  
        if( command.equals( "hi" ))  {
-          System.out.println("");
+    	   
+           System.out.println("");
        }
     }
 }
