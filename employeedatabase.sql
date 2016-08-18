@@ -29,7 +29,8 @@ CREATE TABLE `assignment` (
   `end_date` date DEFAULT NULL,
   PRIMARY KEY (`department_id`,`start_date`,`employee_id`),
   KEY `employee_id` (`employee_id`),
-  CONSTRAINT `assignment_ibfk_1` FOREIGN KEY (`employee_id`) REFERENCES `employee` (`employee_id`)
+  CONSTRAINT `assignment_ibfk_1` FOREIGN KEY (`employee_id`) REFERENCES `employee` (`employee_id`),
+  CONSTRAINT `assignment_ibfk_2` FOREIGN KEY (`department_id`) REFERENCES `department` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -39,7 +40,7 @@ CREATE TABLE `assignment` (
 
 LOCK TABLES `assignment` WRITE;
 /*!40000 ALTER TABLE `assignment` DISABLE KEYS */;
-INSERT INTO `assignment` VALUES (1,'AM100','2015-09-10',NULL),(2,'TS102','2015-09-10','2016-08-10');
+INSERT INTO `assignment` VALUES (1,'AM100','2015-09-10',NULL),(2,'TS102','2015-09-10','2016-08-10'),(3,'AF100','2015-01-02','2016-05-10'),(3,'TS102','2016-07-10','2016-08-10'),(4,'CH100','2013-07-12','2016-04-15'),(5,'DF101','2015-07-10',NULL),(6,'AF100','2014-01-02','2016-08-10'),(6,'AF100','2014-09-09','2016-03-19');
 /*!40000 ALTER TABLE `assignment` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -51,7 +52,7 @@ DROP TABLE IF EXISTS `department`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `department` (
-  `id` int(11) NOT NULL,
+  `id` tinyint(4) NOT NULL,
   `name` enum('Enterprise','Evolve','Gov','Finance','Systems','R & D') DEFAULT NULL,
   `description` varchar(150) DEFAULT NULL,
   `lead_id` char(5) DEFAULT NULL,
@@ -67,7 +68,7 @@ CREATE TABLE `department` (
 
 LOCK TABLES `department` WRITE;
 /*!40000 ALTER TABLE `department` DISABLE KEYS */;
-INSERT INTO `department` VALUES (1,'Enterprise','We deliver online platforms for UK Government Departments','AM100'),(2,'Evolve','We help make healthcare delivery easier with our mobile-enabled healthcare platform','TS102');
+INSERT INTO `department` VALUES (1,'Enterprise','We deliver online platforms for UK Government Departments','AM100'),(2,'Evolve','We help make healthcare delivery easier with our mobile-enabled healthcare platform','TS102'),(3,'Gov','Government Digital Service (GDS) is leading the digital transformation of government.','TS102'),(4,'Finance','responsible for providing financial advice and support to clients and colleagues to enable them to make sound business decisions','DF101'),(5,'Systems','We help make your life better','BB100'),(6,'R & D','The goal was to get people working together and get their creativity flowing','AF100');
 /*!40000 ALTER TABLE `department` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -101,7 +102,7 @@ CREATE TABLE `employee` (
 
 LOCK TABLES `employee` WRITE;
 /*!40000 ALTER TABLE `employee` DISABLE KEYS */;
-INSERT INTO `employee` VALUES ('AM100','Annalisa','Misra','20 Cresent Hill, Fourwinds','Belfast','BT87YU','annalisa12095@hotmail.com','PA975547C','Annalisa Misra','0123456789','12345678',25000),('DF101','Daniel','Friend','43 Ballylenaghan Lane','Belfast','BT25SQ','daniel1234@gmail.com','DA976234D','Daniel Friend','34557843','GHB123HYG',22000),('TS102','Tom','S','123 Brick Lane','Carryduff','BT95AQ','toms9832@hotmail.com','QW927463C','Thomas S','5678908765','BSH432JHU',25000);
+INSERT INTO `employee` VALUES ('AF100','Aoife','Fin','7 Lough Derk Park','Carryduff','BT328HG','afafafaf@hotmail.co.uk','PA521922P','Aoife Rachel Fin','1717394709','POI183GQH',29000),('AM100','Annalisa','Misra','20 Cresent Hill, Fourwinds','Belfast','BT87YU','annalisa12095@hotmail.com','PA975547C','Annalisa Misra','0123456789','12345678',25000),('BB100','Barry','Ben','92832A Window River Drive','Portrush','BT817YV','barrybenbenlive.com','PA82734S','Barry Ben','87651232059','JUH086JKK',22000),('CH100','CLaire','Houston','97a Vauxhall Drive','Larne','BT611GH','clairebear@hotmail.co.uk','PA983312Y','Claire Houston','2698935021','HQZ439JRP',20000),('CO100','Catherine','Lynch','9832a Tear Street','Lisburn','BT138BZ','lynchcath@hotmail.com','PA18375H','Catherine Mary Lynch','1738193882','HGB182UYH',27500),('DF101','Daniel','Friend','43 Ballylenaghan Lane','Belfast','BT25SQ','daniel1234@gmail.com','DA976234D','Daniel Friend','34557843','GHB123HYG',22000),('RF100','Ryan','Fray','233 Whiteboard Lane','Moira','BT21OPS','ryanfrayryan@live.com','PA81938S','Ryan Daniel Fray','918239832981','BSG982JHH',26340),('TS102','Tom','S','123 Brick Lane','Carryduff','BT95AQ','toms9832@hotmail.com','QW927463C','Thomas S','5678908765','BSH432JHU',25000);
 /*!40000 ALTER TABLE `employee` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -127,7 +128,7 @@ CREATE TABLE `salesEmployee` (
 
 LOCK TABLES `salesEmployee` WRITE;
 /*!40000 ALTER TABLE `salesEmployee` DISABLE KEYS */;
-INSERT INTO `salesEmployee` VALUES ('AM100',0,NULL),('DF101',3,1),('TS102',0,NULL);
+INSERT INTO `salesEmployee` VALUES ('AM100',0,NULL),('DF101',3,1),('RF100',4,8),('TS102',0,NULL);
 /*!40000 ALTER TABLE `salesEmployee` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -140,4 +141,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-08-18 14:55:52
+-- Dump completed on 2016-08-18 16:22:46
