@@ -7,7 +7,7 @@ import javax.swing.JTextField;
 import java.awt.Insets;
 import javax.swing.JButton;
 
-public class Test2 extends JPanel {
+public class EmployeeGUI extends JPanel {
 	private JTextField text_id;
 	private JTextField text_firstName;
 	private JTextField text_lastName;
@@ -24,7 +24,7 @@ public class Test2 extends JPanel {
 	/**
 	 * Create the panel.
 	 */
-	public Test2() {
+	public EmployeeGUI() {
 		
 		GridBagLayout gridBagLayout = new GridBagLayout();
 		gridBagLayout.columnWidths = new int[]{0, 0, 0, 213, 0, 0, 0, 0, 0, 0, 0, 0};
