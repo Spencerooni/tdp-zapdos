@@ -4,7 +4,7 @@ import java.sql.*;
 
 
 public class reportGenerator {
-	public void genReport(){
+	public String genReport(){
 		try{
 			Class driver = Class.forName("com.mysql.jdbc.Driver");
 
@@ -17,10 +17,13 @@ public class reportGenerator {
 			while(rs.next()) {
 				String out = String.format("%s %s works in %s", rs.getString("first_name"), rs.getString("last_name"), rs.getInt("department.name"));
 				System.out.println(out);
+				return out.toString();
 			}
 		}catch(Exception e){
 			System.out.println(e.toString());
+			return e.toString();
 		}
+		return null;
 	}
 
 }
