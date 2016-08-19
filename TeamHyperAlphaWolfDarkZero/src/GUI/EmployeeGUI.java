@@ -6,6 +6,7 @@ import java.awt.GridBagConstraints;
 import javax.swing.JTextField;
 
 import DatabaseStuff.dbTest;
+import app.Application;
 
 import java.awt.Insets;
 import java.awt.event.ActionEvent;
@@ -14,18 +15,18 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 
 public class EmployeeGUI extends JPanel {
-	private JTextField text_id;
-	private JTextField text_firstName;
-	private JTextField text_lastName;
-	private JTextField text_Address;
-	private JTextField text_postcode;
-	private JTextField text_City;
-	private JTextField text_NationInsurance;
-	private JTextField text_AccountName;
-	private JTextField text_bic;
-	private JTextField text_iban;
-	private JTextField text_startSalary;
-	private JTextField text_department;
+	public JTextField text_id;
+	public JTextField text_firstName;
+	public JTextField text_lastName;
+	public JTextField text_Address;
+	public JTextField text_postcode;
+	public JTextField text_City;
+	public JTextField text_NationInsurance;
+	public JTextField text_AccountName;
+	public JTextField text_bic;
+	public JTextField text_iban;
+	public JTextField text_startSalary;
+	public JTextField text_department;
 
 	/**
 	 * Create the panel.
@@ -261,15 +262,36 @@ public class EmployeeGUI extends JPanel {
 		add(btnNewButton_1, btn_report);
 
 	}
+	
+	final class ButtonClickListener implements ActionListener{
+	    public void actionPerformed(ActionEvent e) {
+	       String command = e.getActionCommand();  
+	       if( command.equals( "add" ))  {
+	    	   
+	    	   String empID = text_id.getText();
+	    	   String fname = text_firstName.getText();
+	    	   String lname = text_lastName.getText();
+	    	   String addr = text_Address.getText();
+	    	   String city = text_City.getText();
+	    	   String postcode = text_postcode.getText();
+	    	   //String email = 
+	    	   String natIns = text_NationInsurance.getText();
+	    	   String accName = text_AccountName.getText();
+	    	   String iban = text_iban.getText();
+	    	   String bic = text_bic.getText();
+	    	   String startsal = text_startSalary.getText();
+	    	   
+	    	   
+	    	 
+	    	   
+	    	   dbTest test = new dbTest();
+	           test.addEmployee(empID,fname,lname,addr,
+	        		   city,postcode,fname.toString()+lname.toString()+
+	        		   "@company.com"
+	        		   ,natIns,accName,iban,bic,startsal);
+	       }
+	    }
 }
 
-final class ButtonClickListener implements ActionListener{
-    public void actionPerformed(ActionEvent e) {
-       String command = e.getActionCommand();  
-       if( command.equals( "add" ))  {
-    	   dbTest test = new dbTest();
-           test.addEmployee("tfivv","n","s","5","dfg","sfb","xx"
-        		   ,"dfn","zfg","bs","gmg","786756");
-       }
-    }
+
 }
